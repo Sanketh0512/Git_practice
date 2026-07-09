@@ -1,16 +1,13 @@
-name: My test workflow
+name: My First Workflow
 on:
- push:
-  branches: [main]
-Jobs:
-  test build:
-    runs on: ubuntu-latest
+  push:
+    branches: [main]
+    workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
-     -name: getting the code 
-      uses: actions/checkout@v4
-      
-      -name: Welcome
-       run: echo "Hello from CI"
-       
-  
-     
+      - name: Get the code
+        uses: actions/checkout@v4
+      - name: Say hello
+        run: echo "Hello from CI"
